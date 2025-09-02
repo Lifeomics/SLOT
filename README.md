@@ -34,3 +34,8 @@ By integrating subcellular-resolution spatial transcriptomics (mRNA) and proteom
     conda create --name SLOT_env python=3.10
     conda activate SLOT_env
     ```
+3. Install the required packages and SLOT: [#TODO]
+
+    ```bash
+    pip install -e . 
+    ```
