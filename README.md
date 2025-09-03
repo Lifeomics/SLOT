@@ -39,5 +39,5 @@ By integrating subcellular-resolution spatial transcriptomics (mRNA) and proteom
     ```bash
     pip install -e . 
     ```
-## [Tutorial](/SLOT/tutorial)
+## [Tutorial](/tutorial)
 
