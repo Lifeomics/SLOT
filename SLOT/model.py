@@ -102,10 +102,25 @@ class SLOT_model:
                                 pattern="desc",
                                 save_name='an',
                                 N=2000,
-                                n_jobs=1):
+                                n_jobs=1,
+                                distance_scale=1):
         """
         Perform a permutation‐based test of each gene's distance to a
         pattern distribution ("desc", "asc", or "mid") and apply FDR correction.
+        
+        Parameters
+        ----------
+        pattern : str
+            Pattern type: "desc", "asc", or "mid"
+        save_name : str
+            Prefix for saving results
+        N : int
+            Number of permutations for null distribution
+        n_jobs : int
+            Number of parallel jobs
+        distance_scale : float, default=1.0
+            Scale factor for distance calculation. Values < 1.0 make the test
+            more lenient (easier to reject null), values > 1.0 make it stricter.
         
         Returns arrays of:
           - observed distances,
@@ -138,10 +153,11 @@ class SLOT_model:
                  — the +1 correction prevents zero p‐values in a finite test.
             """
             q = make_pattern(p)
-            D_obs = wasserstein_distance(loc, loc, p, q)
-            # Null distribution by permutation
+            # Apply distance scaling to make test more/less stringent
+            D_obs = wasserstein_distance(loc, loc, p, q) * distance_scale
+            # Null distribution by permutation (also scaled)
             D_null = np.array([
-                wasserstein_distance(loc, loc, np.random.permutation(p), q)
+                wasserstein_distance(loc, loc, np.random.permutation(p), q) * distance_scale
                 for _ in range(N)
             ])
             # Phipson–Smyth correction: include the observed as one of N+1 trials
@@ -166,6 +182,7 @@ class SLOT_model:
         self.adata.var[f"{save_name}_p_value_adj"] = pvals_corrected
         self.adata.var[f"{save_name}_pattern_dist"] = D_obs_array
         print(f"Added {save_name} pattern_dist, p-values and p-value_adj to adata.var")
+        print(f"Using distance_scale={distance_scale} for pattern matching test")
 
     @staticmethod
     def mid_permu(arr):
