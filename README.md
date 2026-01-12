@@ -39,5 +39,7 @@ By integrating subcellular-resolution spatial transcriptomics (mRNA) and proteom
     ```bash
     pip install -e . 
     ```
+It may takes 1-2 mins to finish this installation
+
 ## [Tutorial](/tutorial)
 Here we present our SLOT score analysis on the stage IV oocyte protein dataset.This tutorial demonstrates how to identify spatial polarity proteins at subcellular resolution. The processed data are available at [XenoSTAR](http://xenostar.ncpsb.org.cn).
