@@ -74,17 +74,6 @@ SLOT.cluster.run_clustering(adata)
 SLOT.plot.bindingplot(adata)
 ```
 
-## Package Modules
-
-| Module | Description |
-|--------|-------------|
-| `SLOT.model` | Core optimal transport model for polarity score computation |
-| `SLOT.cluster` | Subcellular location clustering algorithms |
-| `SLOT.plot` | Bindingplot, bindingplot_multi, bindingplot_compare and bindingplot_cluster visualization |
-| `SLOT.data` | Data loading and preprocessing utilities |
-| `SLOT.go` | GO enrichment analysis tools |
-| `SLOT.genemapping` | Gene name mapping and conversion utilities |
-
 ## [Tutorials](/tutorial)
 
 | Tutorial | Description |
