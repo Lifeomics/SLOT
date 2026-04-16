@@ -14,17 +14,16 @@ By integrating subcellular-resolution spatial transcriptomics (mRNA) and proteom
 - Spatial-temporal co-localization detection
 
 ## Installation
+
 ### Prerequisites
 
 - Python 3.10 or higher
-- pip (Python package installer)
-- scipy
+- pip 23.0 or higher (upgrade with `pip install --upgrade pip`)
 
 ### Steps
 
 1. Clone the repository:
     ```bash
-    cd ~
     git clone https://github.com/Lifeomics/SLOT.git
     cd SLOT
     ```
@@ -34,12 +33,18 @@ By integrating subcellular-resolution spatial transcriptomics (mRNA) and proteom
     conda create --name SLOT_env python=3.10
     conda activate SLOT_env
     ```
-3. Install the required packages and SLOT: 
 
+3. Install SLOT and its dependencies:
     ```bash
-    pip install -e . 
+    pip install .
     ```
-It may takes 1-2 mins to finish this installation
+
+    For development / editable install (changes to source take effect immediately):
+    ```bash
+    pip install -e .
+    ```
+
+Installation typically takes 1–2 minutes.
 
 ## [Tutorial](/tutorial)
-Here we present our SLOT score analysis on the stage IV oocyte protein dataset.This tutorial demonstrates how to identify spatial polarity proteins at subcellular resolution. The processed data are available at [XenoSTAR](http://xenostar.ncpsb.org.cn).
+Here we present our SLOT score analysis on the stage IV oocyte protein dataset. This tutorial demonstrates how to identify spatial polarity proteins at subcellular resolution. The processed data are available at [XenoSTAR](http://xenostar.ncpsb.org.cn).
