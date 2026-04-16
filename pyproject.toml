@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "SLOT"
+version = "0.1.0"
+description = "A package for Subcellular Location Optimal Transport (SLOT) algorithm."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Devinjzhu", email = "zhuj21@mail.tsinghua.edu.cn" }
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "anndata>=0.10",
+    "h5py>=3.11",
+    "matplotlib>=3.9",
+    "numba>=0.60",
+    "numpy>=1.21",
+    "pandas>=2.2",
+    "scanpy>=1.10",
+    "scikit-learn>=1.5",
+    "scipy>=1.14",
+    "seaborn>=0.13",
+    "tqdm>=4.66",
+    "umap-learn>=0.5",
+    "natsort>=8.4",
+    "networkx>=3.3",
+    "pynndescent>=0.5",
+    "statsmodels>=0.14",
+]
+
+[project.urls]
+Homepage = "https://github.com/Lifeomics/SLOT"
+Repository = "https://github.com/Lifeomics/SLOT"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["SLOT*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.txt", "*.md", "*.jpg", "*.png"]
