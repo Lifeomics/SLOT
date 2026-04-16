@@ -34,6 +34,7 @@ dependencies = [
     "networkx>=3.3",
     "pynndescent>=0.5",
     "statsmodels>=0.14",
+    "goatools>=1.4",
 ]
 
 [project.urls]
