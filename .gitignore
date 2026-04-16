@@ -1,0 +1,69 @@
+# ── Python cache ─────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ── Build / distribution artifacts ───────────────────────────────
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+wheels/
+
+# ── Virtual environments ──────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Jupyter Notebook ─────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# ── Data files (large / binary) ───────────────────────────────────
+*.h5ad
+*.h5
+*.hdf5
+*.loom
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.csv
+*.tsv
+*.xlsx
+*.parquet
+
+# ── Logs / temporary files ────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ── OS-generated files ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE / editor settings ─────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── Test / coverage artifacts ─────────────────────────────────────
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+coverage.xml
+
+# ── Environment variables / secrets ──────────────────────────────
+.env
+.env.*
+*.pem
+*.key
