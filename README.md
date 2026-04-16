@@ -1,4 +1,9 @@
 # Subcellular Location Optimal Transport (SLOT)
+
+[![PyPI version](https://img.shields.io/pypi/v/slot-toolkit.svg)](https://pypi.org/project/slot-toolkit/)
+[![Python](https://img.shields.io/pypi/pyversions/slot-toolkit.svg)](https://pypi.org/project/slot-toolkit/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 SLOT is an optimal-transport–based machine learning framework for quantifying and modeling the spatial–temporal localization of intracellular molecules.
 
 ## Introduction
@@ -18,9 +23,14 @@ By integrating subcellular-resolution spatial transcriptomics (mRNA) and proteom
 ### Prerequisites
 
 - Python 3.10 or higher
-- pip 23.0 or higher (upgrade with `pip install --upgrade pip`)
 
-### Steps
+### Install from PyPI (Recommended)
+
+```bash
+pip install slot-toolkit
+```
+
+### Install from Source
 
 1. Clone the repository:
     ```bash
@@ -46,5 +56,49 @@ By integrating subcellular-resolution spatial transcriptomics (mRNA) and proteom
 
 Installation typically takes 1–2 minutes.
 
-## [Tutorial](/tutorial)
-Here we present our SLOT score analysis on the stage IV oocyte protein dataset. This tutorial demonstrates how to identify spatial polarity proteins at subcellular resolution. The processed data are available at [XenoSTAR](http://xenostar.ncpsb.org.cn).
+## Quick Start
+
+```python
+import SLOT
+
+# Load your spatial omics data
+adata = SLOT.data.load_data("path/to/data.h5ad")
+
+# Compute SLOT polarity scores
+scores = SLOT.model.compute_slot_score(adata)
+
+# Cluster subcellular localization patterns
+SLOT.cluster.run_clustering(adata)
+
+# Visualize results
+SLOT.plot.bindingplot(adata)
+```
+
+## Package Modules
+
+| Module | Description |
+|--------|-------------|
+| `SLOT.model` | Core optimal transport model for polarity score computation |
+| `SLOT.cluster` | Subcellular location clustering algorithms |
+| `SLOT.plot` | Bindingplot, bindingplot_multi, bindingplot_compare and bindingplot_cluster visualization |
+| `SLOT.data` | Data loading and preprocessing utilities |
+| `SLOT.go` | GO enrichment analysis tools |
+| `SLOT.genemapping` | Gene name mapping and conversion utilities |
+
+## [Tutorials](/tutorial)
+
+| Tutorial | Description |
+|----------|-------------|
+| [Tutorial 1: SLOT Score](/tutorial/tutorial1_slot_score.ipynb) | Identify spatial polarity proteins at subcellular resolution |
+| [Tutorial 2: SLOT Cluster](/tutorial/tutorial2_slot_cluster.ipynb) | Cluster subcellular localization patterns |
+| [Tutorial 3: Pattern Matching](/tutorial/tutorial3_slot_pattern_match.ipynb) | Match and compare spatial distribution patterns |
+
+The processed data used in tutorials are available at [XenoSTAR](http://xenostar.ncpsb.org.cn).
+
+## Citation
+
+If you use SLOT in your research, please cite our paper (coming soon).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
