@@ -52,24 +52,19 @@ jobs:
           files: dist/*
           generate_release_notes: true   # auto-generates changelog from commits
 
-  # ── Optional: publish to PyPI ─────────────────────────────────────────────
-  # Uncomment this job after setting up a PyPI Trusted Publisher for this repo.
-  # See: https://docs.pypi.org/trusted-publishers/adding-a-publisher/
-  #
-  # pypi-publish:
-  #   name: Publish to PyPI
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   environment: pypi
-  #   permissions:
-  #     id-token: write   # required for OIDC Trusted Publisher auth
-  #
-  #   steps:
-  #     - name: Download build artifacts
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: dist
-  #         path: dist/
-  #
-  #     - name: Publish to PyPI
-  #       uses: pypa/gh-action-pypi-publish@release/v1
+  pypi-publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # required for OIDC Trusted Publisher auth
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

@@ -1,9 +1,9 @@
 [build-system]
 requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
-name = "SLOT"
+name = "slot-toolkit"
 version = "0.1.0"
 description = "A package for Subcellular Location Optimal Transport (SLOT) algorithm."
 readme = "README.md"
